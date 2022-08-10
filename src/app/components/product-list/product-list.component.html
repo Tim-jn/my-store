@@ -1,1 +1,11 @@
-<p>product-list works!</p>
+<ul class="product-container">
+  <li *ngFor="let product of products">
+    <img src="{{ product.url }}" />
+    {{ product.name }}
+    {{ product.price }}
+    <div class="quantity">
+      <input name="quantity" class="number-input" type="number" min="1" />
+    </div>
+    {{ product.description }}
+  </li>
+</ul>
