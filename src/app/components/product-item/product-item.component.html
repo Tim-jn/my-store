@@ -2,14 +2,14 @@
   <img class="product-image" src="{{ product.url }}" />
   <h3>{{ product.name }}</h3>
   <span>${{ product.price }}</span>
-  <div class="quantity">
-    <input
-      name="quantity"
-      class="select-input"
-      type="number"
-      min="1"
-      value="1"
-    />
-  </div>
-  <span>{{ product.description }}</span>
+  <form>
+    <select class="select-input">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    <button type="submit">Add to cart</button>
+  </form>
 </div>

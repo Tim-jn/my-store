@@ -1,10 +1,10 @@
-.product-image {      
+.product-image {
   list-style-type: none;
   width: 290px;
   padding: 20px;
-  margin: 6px 6px;        
-  border: 1px solid #33B5E5;
-} 
+  margin: 6px 6px;
+  border: 1px solid #33b5e5;
+}
 
 .product-container {
   margin-top: 64px;
@@ -15,7 +15,25 @@
   justify-content: flex-start;
 }
 
+.product-container form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.product-container form select {
+  padding: 7px;
+}
+
+.product-container form button {
+  background-color: rgb(23, 128, 226);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+}
+
 .select-input {
-  width: 108px; 
+  width: 108px;
   margin-bottom: 8px;
 }
