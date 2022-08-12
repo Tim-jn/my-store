@@ -1,1 +1,15 @@
-<p>product-item works!</p>
+<div class="product-container">
+  <img class="product-image" src="{{ product.url }}" />
+  <h3>{{ product.name }}</h3>
+  <span>${{ product.price }}</span>
+  <div class="quantity">
+    <input
+      name="quantity"
+      class="select-input"
+      type="number"
+      min="1"
+      value="1"
+    />
+  </div>
+  <span>{{ product.description }}</span>
+</div>
