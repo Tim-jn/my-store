@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 
-type product = {
+export type productProps = {
   id: number;
   name: string;
   price: number;
@@ -14,7 +14,7 @@ type product = {
   styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit {
-  products: product[] = [];
+  products: productProps[] = [];
 
   constructor(private productService: ProductService) {}
 
