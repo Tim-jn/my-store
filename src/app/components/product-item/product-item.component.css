@@ -4,6 +4,7 @@
   padding: 20px;
   margin: 6px 6px;
   border: 1px solid #33b5e5;
+  cursor: pointer;
 }
 
 .product-container {
@@ -19,10 +20,13 @@
   display: flex;
   flex-direction: column;
   margin-top: 20px;
+  width: 108px;
 }
 
 .product-container form select {
   padding: 7px;
+  cursor: pointer;
+  margin-bottom: 8px;
 }
 
 .product-container form button {
@@ -31,9 +35,4 @@
   border: none;
   border-radius: 5px;
   padding: 10px 15px;
-}
-
-.select-input {
-  width: 108px;
-  margin-bottom: 8px;
 }
