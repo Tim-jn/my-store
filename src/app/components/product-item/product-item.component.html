@@ -3,7 +3,7 @@
     ><img class="product-image" src="{{ product.url }}"
   /></a>
   <h3>{{ product.name }}</h3>
-  <span>${{ product.price }}</span>
+  <span>{{ product.price | currency }}</span>
   <form>
     <select [(ngModel)]="selectQuantity" name="select">
       <option default value="1">1</option>
