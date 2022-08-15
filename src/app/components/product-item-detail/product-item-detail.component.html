@@ -1,8 +1,8 @@
-<section class="detail-container">
+<section class="detail-container" *ngIf="product">
   <div><img src="{{ product.url }}" alt="{{ product.name }}" /></div>
   <div class="detail-item">
     <h2>{{ product.name }}</h2>
-    <p>${{ product.price }}</p>
+    <p>{{ product.price | currency }}</p>
     <p>{{ product.description }}</p>
     <form>
       <select>
