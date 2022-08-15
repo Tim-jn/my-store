@@ -3,22 +3,50 @@ img {
   border-radius: 10px;
 }
 
+.cart-form {
+  margin: 0 50px;
+}
+
 .form-margin {
   margin-bottom: 12px;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input input {
+  height: 35px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding-left: 10px;
+}
+
+.form-input span {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 11px;
+  color: grey;
 }
 
 .cart-item {
   display: flex;
   flex-direction: row;
-  margin-bottom: 20px;
+  margin: 0 50px 20px 50px;
 }
 
 .cart-item-details {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-direction: column;
   align-items: left;
   margin-left: 80px;
+}
+
+.cart-item-details > * {
+  margin: 10px 0;
 }
 
 .number-input {
@@ -33,13 +61,17 @@ img {
   margin-top: 64px;
 }
 
-.cart-panel {
-  margin-left: 50px;
-  margin-right: 50px;
-}
-
 .empty-cart-message {
   display: flex;
   justify-content: center;
   margin-top: 64px;
+}
+
+.form-submit input {
+  background: rgb(23, 128, 226);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
 }
