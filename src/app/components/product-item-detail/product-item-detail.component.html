@@ -1,1 +1,19 @@
-<p>product-item-detail works!</p>
+<section class="detail-container">
+  <div><img src="{{ product.url }}" alt="{{ product.name }}" /></div>
+  <div class="detail-item">
+    <h2>{{ product.name }}</h2>
+    <p>${{ product.price }}</p>
+    <p>{{ product.description }}</p>
+    <form>
+      <select>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <button type="submit">Add to cart</button>
+    </form>
+    <a routerLink="/" class="back-link">⬅️ Back to product list</a>
+  </div>
+</section>

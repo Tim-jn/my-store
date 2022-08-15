@@ -1,11 +1,6 @@
-img {
+.detail-container img {
   border-radius: 10px;
   width: 320px;
-}
-
-.select-input {
-  width: 108px; 
-  margin-bottom: 8px;
 }
 
 .detail-container {
@@ -16,10 +11,51 @@ img {
 }
 
 .detail-item {
-  margin-left: 128px;
-  margin-right: 128px;
+  margin-left: 7%;
+  margin-right: 7%;
 }
 
 .back-link {
-  margin-top: 8px;
+  cursor: pointer;
+  color: #33b5e5;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.detail-container form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 108px;
+  margin-bottom: 20px;
+}
+
+.detail-container form select {
+  padding: 7px;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.detail-container form button {
+  background-color: rgb(23, 128, 226);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+@media all and (max-width: 850px) {
+  .detail-container {
+    flex-direction: column;
+  }
+
+  .detail-item {
+    margin-top: 5%;
+    margin-bottom: 10%;
+  }
 }
