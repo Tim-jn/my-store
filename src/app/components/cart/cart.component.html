@@ -1,16 +1,23 @@
-<section *ngIf="products.length <= 0">
+<section *ngIf="cart.length <= 0">
   <div class="empty-cart-message">Your cart is empty.</div>
 </section>
 
-<section *ngIf="products.length > 0" class="cart-container">
+<section *ngIf="cart.length > 0" class="cart-container">
   <div class="cart-items">
-    <div class="cart-item" *ngFor="let product of products">
-      <img src="{{ product.url }}" alt="{{ product.name }}" />
+    <div class="cart-item" *ngFor="let cartItem of cart">
+      <img src="{{ cartItem.product.url }}" alt="{{ cartItem.product.name }}" />
       <div class="cart-item-details">
-        <h3>{{ product.name }}</h3>
-        <span>{{ product.price | currency }}</span>
+        <h3>{{ cartItem.product.name }}</h3>
+        <span>{{ cartItem.product.price | currency }}</span>
         <span
-          >Amount : <input name="quantity" class="number-input" type="number"
+          >Amount :
+          <input
+            name="quantity"
+            class="number-input"
+            type="number"
+            min="0"
+            [(ngModel)]="cartQuantity"
+            (ngModelChange)="handleUpdateQuantity()"
         /></span>
       </div>
     </div>
