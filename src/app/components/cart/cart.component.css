@@ -75,3 +75,8 @@ img {
   padding: 10px 15px;
   cursor: pointer;
 }
+
+.form-submit input:disabled {
+  background: rgba(23, 128, 226, 0.479);
+  cursor: not-allowed;
+}
