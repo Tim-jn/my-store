@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { cart } from '../../services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -10,32 +11,28 @@ import { cart } from '../../services/cart.service';
 export class CartComponent implements OnInit {
   cart: cart[] = [];
   total: number = 0;
-  cartQuantity!: number;
+  value!: number;
 
-  constructor(private cartService: CartService) {}
+  name!: string;
+  address!: string;
+  card!: number;
+
+  constructor(private cartService: CartService, private router: Router) {}
 
   ngOnInit(): void {
     this.cart = this.cartService.getProducts();
-    // this.products.some((product) => {
-    //   if (this.products.includes(product)) {
-    //     return console.log(true);
-    //   }
-    //   return console.log(false);
-    // });
-    // this.quantityProducts = this.products.map((product) => {
-    //   return { ...product, quantity: this.selectQuantity };
-    // });
-    this.cart.map((cartItem) => {
-      this.cartQuantity = cartItem.quantity;
-      this.total += cartItem.product.price * cartItem.quantity;
-    });
 
-    // }
+    this.total = this.cartService.value;
+    this.value = this.cartService.value;
   }
 
   handleUpdateQuantity() {
     this.cartService.updateQuantity();
     this.total = this.cartService.value;
-    console.log(this.cart);
+  }
+
+  handleSubmit() {
+    this.cartService.name = this.name;
+    this.router.navigate(['/confirmation']);
   }
 }
