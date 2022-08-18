@@ -1,27 +1,55 @@
 import { Injectable } from '@angular/core';
-import { productProps } from '../components/product-list/product-list.component';
+import { products } from '../components/product-list/product-list.component';
+
+export type cart = {
+  product: products;
+  quantity: number;
+};
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  products: productProps[] = [];
+  cart: cart[] = [];
+  value: number = 0;
+  name!: string;
 
   constructor() {}
 
-  addToCart(product: productProps, quantity: number) {
-    for (let i = 0; i < quantity; i++) {
-      this.products.push(product);
+  addToCart(product: products, quantity: number) {
+    let index = this.cart.findIndex((cartItem) => {
+      return cartItem.product.id === product.id;
+    });
+    if (index >= 0) {
+      this.cart[index].quantity += Number(quantity);
+    } else {
+      this.cart.push({
+        product,
+        quantity: Number(quantity),
+      });
     }
-    console.log(quantity);
+    this.updateQuantity();
   }
 
-  getItems() {
-    return this.products;
+  updateQuantity() {
+    let value = 0;
+
+    for (let cartItem of this.cart) {
+      value += cartItem.product.price * cartItem.quantity;
+    }
+
+    this.value = Math.round(value * 100) / 100;
+  }
+
+  getProducts() {
+    this.cart = this.cart.filter((cartItem) => {
+      return cartItem.quantity > 0;
+    });
+    return this.cart;
   }
 
   clearCart() {
-    this.products = [];
-    return this.products;
+    this.cart = [];
+    return this.cart;
   }
 }
