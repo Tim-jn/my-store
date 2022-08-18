@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { productProps } from '../product-list/product-list.component';
+import { products } from '../product-list/product-list.component';
 import { ProductService } from 'src/app/services/product.service';
-import { Subscription } from 'rxjs';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-product-item-detail',
@@ -10,12 +10,15 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./product-item-detail.component.css'],
 })
 export class ProductItemDetailComponent implements OnInit {
-  product!: productProps;
+  product!: products;
   id!: number;
+  selectQuantity: number = 1;
+  productAdded: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductService
+    private productService: ProductService,
+    private cartService: CartService
   ) {}
 
   ngOnInit(): void {
@@ -25,8 +28,16 @@ export class ProductItemDetailComponent implements OnInit {
 
     this.productService.getProducts().subscribe((data) => {
       this.product = data.filter(
-        (product: productProps) => product.id === this.id
+        (product: products) => product.id === this.id
       )[0];
     });
+  }
+
+  handleAddToCart() {
+    this.cartService.addToCart(this.product, this.selectQuantity);
+    this.productAdded = true;
+    setTimeout(() => {
+      this.productAdded = false;
+    }, 1500);
   }
 }

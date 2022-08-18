@@ -20,6 +20,7 @@
   color: #33b5e5;
   font-weight: 600;
   font-size: 14px;
+  text-decoration: none;
 }
 
 .back-link:hover {
@@ -47,6 +48,12 @@
   border-radius: 5px;
   padding: 10px 15px;
   cursor: pointer;
+}
+
+.product-added {
+  color: grey;
+  margin: 10px 0;
+  font-size: 12px;
 }
 
 @media all and (max-width: 850px) {
