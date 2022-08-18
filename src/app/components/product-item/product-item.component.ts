@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { productProps } from '../product-list/product-list.component';
+import { products } from '../product-list/product-list.component';
 import { CartService } from 'src/app/services/cart.service';
-import { FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-product-item',
@@ -9,8 +8,7 @@ import { FormArray } from '@angular/forms';
   styleUrls: ['./product-item.component.css'],
 })
 export class ProductItemComponent implements OnInit {
-  @Input() product!: productProps;
-  quantity!: number;
+  @Input() product!: products;
   selectQuantity: number = 1;
   productAdded: boolean = false;
 
@@ -18,8 +16,8 @@ export class ProductItemComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  addToCart(product: productProps) {
-    this.cartService.addToCart(product, Number(this.selectQuantity));
+  handleAddToCart() {
+    this.cartService.addToCart(this.product, this.selectQuantity);
     this.productAdded = true;
     setTimeout(() => {
       this.productAdded = false;
