@@ -86,3 +86,8 @@ img {
   opacity: 0.5;
   cursor: pointer;
 }
+
+.form-input .error {
+  color: red !important;
+  margin-bottom: 0;
+}

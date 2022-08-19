@@ -60,8 +60,11 @@
         type="tel"
         pattern="[0-9\s]{13,19}"
         placeholder="(16-digit number)"
+        (input)="ngOnChanges(card)"
       />
-
+      <span *ngIf="isNumber === false" class="error"
+        >Please enter numbers only !</span
+      >
       <span>We'll never share you payment details with anyone else.</span>
     </div>
     <div class="form-submit">
