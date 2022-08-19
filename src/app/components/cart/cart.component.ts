@@ -35,4 +35,11 @@ export class CartComponent implements OnInit {
     this.cartService.name = this.name;
     this.router.navigate(['/confirmation']);
   }
+
+  handleRemove(product: any) {
+    this.cart.splice(this.cart.indexOf(product), 1);
+
+    this.cartService.updateQuantity();
+    this.total = this.cartService.value;
+  }
 }
