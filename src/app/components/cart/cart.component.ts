@@ -17,6 +17,8 @@ export class CartComponent implements OnInit {
   address!: string;
   card!: number;
 
+  isNumber!: boolean;
+
   constructor(private cartService: CartService, private router: Router) {}
 
   ngOnInit(): void {
@@ -41,5 +43,13 @@ export class CartComponent implements OnInit {
 
     this.cartService.updateQuantity();
     this.total = this.cartService.value;
+  }
+
+  ngOnChanges(input: number): void {
+    if (isNaN(input)) {
+      this.isNumber = false;
+    } else {
+      this.isNumber = true;
+    }
   }
 }
