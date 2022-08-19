@@ -20,6 +20,7 @@
             (ngModelChange)="handleUpdateQuantity()"
         /></span>
       </div>
+      <span class="cross" (click)="handleRemove(cartItem)">❌</span>
     </div>
 
     <p class="cart-total">Total : {{ total | currency }}</p>
@@ -51,13 +52,16 @@
     <div class="form-input form-margin">
       <label for="email">Credit card number</label>
       <input
-        type="text"
         [(ngModel)]="card"
         name="card"
         required
         minlength="16"
+        maxlength="16"
+        type="tel"
+        pattern="[0-9\s]{13,19}"
         placeholder="(16-digit number)"
       />
+
       <span>We'll never share you payment details with anyone else.</span>
     </div>
     <div class="form-submit">

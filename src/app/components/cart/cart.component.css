@@ -80,3 +80,9 @@ img {
   background: rgba(23, 128, 226, 0.479);
   cursor: not-allowed;
 }
+
+.cross {
+  filter: brightness(0%);
+  opacity: 0.5;
+  cursor: pointer;
+}
