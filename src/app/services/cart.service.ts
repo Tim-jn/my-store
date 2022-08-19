@@ -36,6 +36,11 @@ export class CartService {
 
     for (let cartItem of this.cart) {
       value += cartItem.product.price * cartItem.quantity;
+      if (cartItem.quantity === 0) {
+        alert(
+          `If the amount is set to 0, the "${cartItem.product.name}" item will be removed from your cart !`
+        );
+      }
     }
 
     this.value = Math.round(value * 100) / 100;
