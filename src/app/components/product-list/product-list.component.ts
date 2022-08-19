@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 
 export type products = {
@@ -15,7 +15,7 @@ export type products = {
   styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit {
-  products: products[] = [];
+  @Output() products: products[] = [];
 
   constructor(private productService: ProductService) {}
 
